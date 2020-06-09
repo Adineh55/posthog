@@ -3,6 +3,7 @@ import Draggable from 'react-draggable'
 import { ToolbarContent } from '~/toolbar/ToolbarContent'
 import { CloseOutlined } from '@ant-design/icons'
 import React from 'react'
+import { Heatmap } from '~/toolbar/shared/Heatmap'
 
 export function ToolbarContainer({ dockLogic, ...props }) {
     const apiURL = `${props.apiURL}${props.apiURL.endsWith('/') ? '' : '/'}`
@@ -17,6 +18,8 @@ export function ToolbarContainer({ dockLogic, ...props }) {
 
     return (
         <>
+            <Heatmap {...props} dockLogic={dockLogic} />
+
             {showFloating ? (
                 <Draggable handle=".toolbar-block">
                     <div id="float-toolbar" className={showInvisibleFloating ? 'toolbar-invisible' : ''}>
